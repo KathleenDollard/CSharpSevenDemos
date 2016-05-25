@@ -12,7 +12,10 @@ namespace CSharp7Demo
     {
       IDictionary<int, Person> persons = SeedData.GetPersons();
       var term = new Spring2016Term();
-      IEnumerable<string> thankYouMessages = term.GetThankYouMessages(persons.Values);
+      var staffCount = 0;
+      IEnumerable<string> thankYouMessages = term.GetThankYouMessages(
+              persons.Values, out staffCount);
+      Console.WriteLine($"Staff count: {staffCount}");
       Console.Write(string.Join("\n", thankYouMessages));
       Console.Read();
     }

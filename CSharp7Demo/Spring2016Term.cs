@@ -8,10 +8,10 @@ namespace CSharp7Demo
 {
   public class Spring2016Term
   {
-    public IEnumerable<string> GetThankYouMessages(IEnumerable<Person> persons)
+    public IEnumerable<string> GetThankYouMessages(IEnumerable<Person> persons,
+                                                   out int staffCount)
     {
       var messages = new List<string>();
-      var staffCount = 0;
       foreach (var person in persons)
       {
         var message = GetThankYouMessage(person);
