@@ -18,6 +18,7 @@ namespace CSharp7Demo
         var staff = person as Staff;
         if (staff != null)
         { staffCount += 1; }
+        messages.Add(message);
       }
       return messages;
     }
@@ -34,7 +35,7 @@ namespace CSharp7Demo
       }
       var instructor = person as Instructor;
       if (instructor != null)
-      { return $"Thanks for teaching {string.Join("\n", instructor.Courses)}"; }
+      { return $"Thanks for teaching {string.Join(", ", instructor.Courses)}"; }
       var staff = person as Staff;
       if (staff != null)
       { return $"Thanks for being a {staff.StaffRole.ToString()}"; }
