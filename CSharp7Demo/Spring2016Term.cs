@@ -12,6 +12,7 @@ namespace CSharp7Demo
                                                    out int staffCount)
     {
       var messages = new List<string>();
+      staffCount = 0;
       foreach (var person in persons)
       {
         var message = GetThankYouMessage(person);
