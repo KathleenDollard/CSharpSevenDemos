@@ -10,6 +10,9 @@ namespace CSharp7Demo
     {
         static void Main(string[] args)
         {
+            IDictionary<int, Person> persons = SeedData.GetPersons();
+            var term = new Spring2016Term();
+            IEnumerable<string> thankYouMessages = term.GetThankYouMessages(persons.Values);
         }
     }
 }
