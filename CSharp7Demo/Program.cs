@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace CSharp7Demo
 {
-    class Program
+  class Program
+  {
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            IDictionary<int, Person> persons = SeedData.GetPersons();
-            var term = new Spring2016Term();
-            IEnumerable<string> thankYouMessages = term.GetThankYouMessages(persons.Values);
-        }
+      IDictionary<int, Person> persons = SeedData.GetPersons();
+      var term = new Spring2016Term();
+      IEnumerable<string> thankYouMessages = term.GetThankYouMessages(persons.Values);
+      Console.Write(string.Join("\n", thankYouMessages));
+      Console.Read();
     }
+  }
 }

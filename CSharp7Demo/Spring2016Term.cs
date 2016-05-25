@@ -37,7 +37,7 @@ namespace CSharp7Demo
       { return $"Thanks for teaching {string.Join("\n", instructor.Courses)}"; }
       var staff = person as Staff;
       if (staff != null)
-      { return $"Thanks for being a {instructor.StaffRole.ToString()}"; }
+      { return $"Thanks for being a {staff.StaffRole.ToString()}"; }
       throw new InvalidOperationException();
     }
   }
