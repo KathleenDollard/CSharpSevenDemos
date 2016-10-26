@@ -15,8 +15,12 @@ namespace CSharp7Demo
     public class Student : Person
     {
         public Student(string name, decimal gpa) : base(name)
-        { GPA = gpa; }
+        {
+            GPA = gpa;
+            Name = name;
+        }
         public decimal GPA { get; }
+        public new string Name { get; }
     }
     public class Staff : Person
     {
@@ -24,6 +28,7 @@ namespace CSharp7Demo
         { StaffRole = staffRole; }
         public StaffRole StaffRole { get; }
         public decimal Salary { get; }
+        public new string Name { get; }
     }
     public class Instructor : Staff
     {
@@ -33,6 +38,8 @@ namespace CSharp7Demo
             Courses = courses;
         }
         public IEnumerable<string> Courses { get; private set; }
+        public new decimal Salary { get; }
+        public new string Name { get; }
     }
     [Flags]
     public enum StaffRole
@@ -40,6 +47,7 @@ namespace CSharp7Demo
         Instructor = 1,
         Researcher = 2,
         DepartmentChair = 4,
-        Cleaner = 8
+        Cleaner = 8,
+        Provost = 4096
     }
 }
