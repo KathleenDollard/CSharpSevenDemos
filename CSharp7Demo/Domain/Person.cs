@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CSharp7Demo
 {
@@ -17,18 +14,18 @@ namespace CSharp7Demo
         public Student(string name, decimal gpa) : base(name)
         {
             GPA = gpa;
-            Name = name;
         }
         public decimal GPA { get; }
-        public new string Name { get; }
     }
     public class Staff : Person
     {
         public Staff(string name, StaffRole staffRole, decimal salary) : base(name)
-        { StaffRole = staffRole; }
+        {
+            StaffRole = staffRole;
+            Salary = salary;
+        }
         public StaffRole StaffRole { get; }
         public decimal Salary { get; }
-        public new string Name { get; }
     }
     public class Instructor : Staff
     {
@@ -38,15 +35,9 @@ namespace CSharp7Demo
             Courses = courses;
         }
 
-        public void Deconstruct(out string Name, out decimal Salary)
-        {
-            Name = this.Name;
-            Salary = this.Salary;
-        }
         public IEnumerable<string> Courses { get; private set; }
-        public new decimal Salary { get; }
-        public new string Name { get; }
     }
+
     [Flags]
     public enum StaffRole
     {

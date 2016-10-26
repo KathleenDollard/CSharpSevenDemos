@@ -13,20 +13,21 @@ namespace CSharp7Demo
             IEnumerable<string> thankYouMessages = term.GetThankYouMessages(
                     persons.Values, out staffCount);
 
-            void WriteResults()
-            {
-                Console.WriteLine($"Staff count: {staffCount}");
-                Console.Write(string.Join("\n", thankYouMessages));
-                Console.Read();
-            }
-
-            WriteResults();
+            Console.WriteLine($"Staff count: {staffCount}");
+            Console.Write(string.Join("\n", thankYouMessages));
+            Console.Read();
         }
 
         private static IDictionary<Int32, Person> GetData()
         {
             ISeedData<Person> seedData = new SeedDataForPerson();
             return seedData.GetData();
+        }
+
+        private static Person GetPerson(
+                        IDictionary<int, Person> persons, int id)
+        {
+            return persons[id];
         }
     }
 }
