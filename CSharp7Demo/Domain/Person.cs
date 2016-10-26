@@ -37,6 +37,12 @@ namespace CSharp7Demo
         {
             Courses = courses;
         }
+
+        public void Deconstruct(out string Name, out decimal Salary)
+        {
+            Name = this.Name;
+            Salary = this.Salary;
+        }
         public IEnumerable<string> Courses { get; private set; }
         public new decimal Salary { get; }
         public new string Name { get; }
@@ -48,6 +54,7 @@ namespace CSharp7Demo
         Researcher = 2,
         DepartmentChair = 4,
         Cleaner = 8,
+        DroppingThings = 16,
         Provost = 4096
     }
 }

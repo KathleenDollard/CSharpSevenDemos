@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CSharp7Demo
 {
@@ -10,9 +7,8 @@ namespace CSharp7Demo
     {
         static void Main(string[] args)
         {
-
-            IDictionary<int, Person> persons = SeedData.GetPersons();
-            var term = new Spring2016Term();
+            IDictionary<int, Person> persons = GetData();
+            var term = new Spring2016TermMessaging();
             var staffCount = 0;
             IEnumerable<string> thankYouMessages = term.GetThankYouMessages(
                     persons.Values, out staffCount);
@@ -25,8 +21,12 @@ namespace CSharp7Demo
             }
 
             WriteResults();
-            
+        }
 
+        private static IDictionary<Int32, Person> GetData()
+        {
+            ISeedData<Person> seedData = new SeedDataForPerson();
+            return seedData.GetData();
         }
     }
 }

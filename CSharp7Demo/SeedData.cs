@@ -1,25 +1,21 @@
-﻿
-
-
-
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace CSharp7Demo
 {
-  public class SeedData
-  {
-    public static IDictionary<int, Person> GetPersons()
+    public class SeedDataForPerson : ISeedData<Person>
     {
-      var dictionary = new Dictionary<int, Person>()
-      {
-        [1] = new Instructor("Albert Einstein", 100000, new string[] { "Physics", "Relativity" }),
-        [2] = new Instructor("Anders Jonas Ångström", 10000, new string[] { "Chemistry" }),
-        [3] = new Staff("Donald Trump", StaffRole.Cleaner, 10_000_000),
-        [4] = new Student("Benson Joeris", 4.0m),
-        [5] = new Student("Kathleen Dollard", 3.1m)
-      };
-      return dictionary;
+        public IDictionary<int, Person> GetData()
+        {
+            var dictionary = new Dictionary<int, Person>()
+            {
+                [1] = new Instructor("Albert Einstein", 100000, new string[] { "Physics", "Relativity" }),
+                [2] = new Instructor("Anders Jonas Ångström", 10000, new string[] { "Chemistry" }),
+                [3] = new Staff("Brock Osweiler", StaffRole.DroppingThings, 720000000),
+                [4] = new Student("Benson Joeris", 4.0m),
+                [4] = new Student("Jean Joeris", 4.0m),
+                [5] = new Student("Kathleen Dollard", 3.1m)
+            };
+            return dictionary;
+        }
     }
-  }
 }
